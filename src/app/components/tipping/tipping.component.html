@@ -1,0 +1,37 @@
+<!-- <header class="container-fluid jumbotron">
+  <h1>Tip Calculator</h1>
+  <h2 class="subheading">For Front-End Web 100</h2>
+</header> -->
+<main class="container">
+  <div class="form-group">
+    <label for="amount">Amount Of Bill</label>
+    <input type="number"
+           name="amount"
+           #amount
+           class="form-control">
+    <button (click)="calculate(amount.valueAsNumber)"
+            class="btn btn-primary">Calculate Tip at 20%</button>
+  </div>
+  <div class="btn-group"
+       role="group"
+       aria-label="Basic example">
+    <button type="button"
+            [disabled]="tipPercentage === .1"
+            (click)="setTipPercentage(.1)"
+            class="btn btn-secondary">10%</button>
+    <button type="button"
+            [disabled]="tipPercentage === .15"
+            (click)="setTipPercentage(.15)"
+            class="btn btn-secondary">15%</button>
+    <button type="button"
+            [disabled]="tipPercentage === .20"
+            (click)="setTipPercentage(.2)"
+            class="btn btn-secondary">20%</button>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Bill Amount: <span>{{billAmount | currency}}</span></li>
+    <li class="list-group-item">Tip Precentage: <span>{{tipPercentage | percent}}</span> </li>
+    <li class="list-group-item">Tip Amount: <span>{{tipAmount | currency}}</span> </li>
+    <li class="list-group-item"><strong>Total To Be Paid: <span>{{ total | currency }}</span> </strong></li>
+  </ul>
+</main>
